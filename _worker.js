@@ -6,7 +6,7 @@ import { connect } from 'cloudflare:sockets';
 let userID = 'ded17bc9-f8cc-4f3b-bfb7-218432f22ad6';
 
 //const พร็อกซีไอพีs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'workers.cloudflare.cyou'];
-const พร็อกซีไอพีs = ['38.60.193.247']
+const พร็อกซีไอพีs = ['proxyip.digitalocean.fxxk.dedyn.io'];
 //38.60.193.247:13300
 
 // if you want to use ipv6 or single พร็อกซีไอพี, please add comment at this line and remove comment at the next line
