@@ -10,7 +10,7 @@ const พร็อกซีไอพีs = ['83.142.30.129:2096'];
 //38.60.193.247:13300
 //proxyip.digitalocean.fxxk.dedyn.io
 
-// if you want to use ipv6 or single พร็อกซีไอพี, please add comment at this line and remove comment at the next line
+// if you want o use ipv6 or single พร็อกซีไอพี, please add comment at this line and remove comment at the next line
 let พร็อกซีไอพี = พร็อกซีไอพีs[Math.floor(Math.random() * พร็อกซีไอพีs.length)];
 // use single1 พร็อกซีไอพี instead of random
 // let พร็อกซีไอพี = 'cdn.xn--b6gac.eu.org';
