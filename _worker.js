@@ -6,7 +6,7 @@ import { connect } from 'cloudflare:sockets';
 let userID = '77ff3d8a-d4b4-4156-8e52-ead06720726d';
 
 //const พร็อกซีไอพีs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'workers.cloudflare.cyou'];
-const พร็อกซีไอพีs = ['proxyip.digitalocean.fxxk.dedyn.io'];
+const พร็อกซีไอพีs = ['83.142.30.129:2096'];
 //38.60.193.247:13300
 //proxyip.digitalocean.fxxk.dedyn.io
 
