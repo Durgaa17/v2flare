@@ -2,7 +2,7 @@ name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [ "main" ]  # Change if you use a different branch (e.g., "production")
+    branches: [ "main" ]  # Change to "production" if needed
 
 jobs:
   deploy:
