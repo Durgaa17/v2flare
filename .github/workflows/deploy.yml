@@ -10,6 +10,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Cloudflare Pages Deploy
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Trigger Cloudflare Deploy
         run: |
-          curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/5b6cd060-2ad4-4445-b254-ec1956e66e66"
+          response=$(curl -s -w "%{http_code}" -X POST \
+            "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/5b6cd060-2ad4-4445-b254-ec1956e66e66")
+          
+          if [ "${response: -3}" -ne 200 ]; then
+            echo "Deployment failed with status: ${response: -3}"
+            exit 1
+          else
+            echo "Deployment triggered successfully"
+          fi
