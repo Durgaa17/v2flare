@@ -1,46 +1,15 @@
 name: Deploy to Cloudflare Pages
 
-# ──────────────────────────────
-# 1. Triggers
-# ──────────────────────────────
 on:
   push:
-    branches: [ "main" ]          # ← change if you push to "production", etc.
-  workflow_dispatch:              # ← ONE-CLICK manual run button
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 
-# ──────────────────────────────
-# 2. Job
-# ──────────────────────────────
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy project "do"
     steps:
-
-      # ── Checkout code ───────────────────────
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # ── Install Node (required for npx) ─────
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'        # latest LTS
-
-      # ── Cache npm dependencies (optional but speeds up) ──
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # ── Deploy with Wrangler (official Cloudflare action) ──
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          #   ├─ output folder (change if your build is in dist/, build/, out/)
-          #   └─ project name = "do"
-          command: pages deploy . --project-name=do --branch=main
+      - name: Trigger Cloudflare Pages Deploy
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/5b6cd060-2ad4-4445-b254-ec1956e66e66"
