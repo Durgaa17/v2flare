@@ -1,2 +1,2 @@
 # v2flare
-V2ray config generator using cloudflare pages
+V2ray vless tunnel using cloudflare pages
