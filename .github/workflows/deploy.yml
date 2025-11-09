@@ -16,7 +16,7 @@ jobs:
       - name: Trigger Cloudflare Deploy
         run: |
           response=$(curl -s -w "%{http_code}" -X POST \
-            "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/5b6cd060-2ad4-4445-b254-ec1956e66e66")
+            "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/a7e02ac6-302f-4747-b0d0-60a767a664f8")
           
           if [ "${response: -3}" -ne 200 ]; then
             echo "Deployment failed with status: ${response: -3}"
